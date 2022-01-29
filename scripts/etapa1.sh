@@ -19,7 +19,7 @@ mount --make-rslave /mnt/gentoo/dev
 mount --bind /run /mnt/gentoo/run
 mount --make-slave /mnt/gentoo/run 
 cp /etc/resolv.conf /mnt/gentoo/etc/
-#wget  myfstabhere -O /mnt/gentoo/etc/fstab
-#wget  mymakeconfhere -O /mnt/gentoo/etc/portage/make.conf
+wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/fstab?token=GHSAT0AAAAAABRCDFVFY5O35K6DLWA2KQHWYP64BQQ -O /mnt/gentoo/etc/fstab
+wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/make.conf?token=GHSAT0AAAAAABRCDFVEGHF3D6BSR3LZNUPOYP64COA -O /mnt/gentoo/etc/portage/make.conf
 chroot /mnt/gentoo /bin/bash
 
