@@ -3,7 +3,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "Arc-Darker"
 gsettings set org.gnome.desktop.wm.preferences theme "Arc"
 gsettings set org.gnome.desktop.interface icon-theme "Arc" 
 #atualiza .bashrc
-#sudo wget putmy.bashrchere -O ~/.bashrc
+sudo wget https://github.com/gsuzeda/easygentoo/blob/main/files/.bashrc -O ~/.bashrc
 source ~/.bashrc
 #Instala o Android SDK
 wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O commandline.zip
