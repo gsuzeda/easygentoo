@@ -24,11 +24,6 @@ flutter upgrade
  git config --global user.email "gabrielsuzeda@gmail.com"
  git config --global user.name "Uzeda"
 
-mkdir ~/Android/potato
-cd ~/Android/potato
-repo init -u https://github.com/PotatoProject/manifest -b frico-release;
-repo sync;
-cd ~/
 #Android rules
 sudo curl --create-dirs -L -o /etc/udev/rules.d/51-android.rules -O -L https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
 sudo chmod 644 /etc/udev/rules.d/51-android.rules
