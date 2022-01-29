@@ -21,7 +21,7 @@ emerge grub
 mkdir /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
-emerge ccache eselect-repository networkmanager gentoo-kernel linux-firmware
+emerge ccache eselect-repository networkmanager gentoo-kernel linux-firmware mold
 mkdir /var/cache/ccache/
 echo 'max_size = 50.0G
 umask = 002
