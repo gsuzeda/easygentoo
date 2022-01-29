@@ -24,6 +24,5 @@
 #       the blkid(8) command.
 
 /dev/nvme0n1p1		/boot		vfat			noauto,noatime	1 2
-/dev/nvme0n1p2		/		f2fs			noatime		0 1
-/dev/nvme0n1p3		none		swap			sw		0 0
-/dev/sda	       /home/gsuzeda/Android/potato/out		f2fs            defaults 
+/dev/nvme0n1p2		/		    f2fs			noatime	      	0 1
+/dev/nvme0n1p3		none		swap			sw		          0 0
