@@ -22,7 +22,7 @@ mkdir /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
 mkdir /var/cache/ccache/
-emerge ccache gentoo-kernel-bin =dev-libs/ell-0.46
+emerge ccache gentoo-kernel-bin
 echo 'max_size = 30.0G
 umask = 002
 cache_dir_levels = 3
