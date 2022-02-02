@@ -4,6 +4,7 @@ export PS1="(gentoo) ${PS1}"
 mount /dev/nvme0n1p1 /boot
 #Atualiza as fontes e define um perfil 
 emerge-webrsync
+emerge --sync --quiet
 eselect profile set 7
 #Configuracoes locais para PT BR
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -15,14 +16,13 @@ pt_BR.UTF-8 UTF-8
 emerge dejavu
 eselect fontconfig enable $(seq 41)
 locale-gen
-eselect locale set 7
 #Instala o grub
 emerge grub
 mkdir /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
 mkdir /var/cache/ccache/
-emerge ccache 
+emerge ccache gentoo-kernel-bin =dev-libs/ell-0.46
 echo 'max_size = 30.0G
 umask = 002
 cache_dir_levels = 3
@@ -30,12 +30,12 @@ compiler_check = %compiler% -v
 compression = true
 compression_level = 1 ' > /var/cache/ccache/ccache.conf 
 mkdir -p /etc/portage/repos.conf
-emerge eselect-repository networkmanager gentoo-kernel-bin linux-firmware mold dev-vcs/git
+emerge eselect-repository networkmanager  linux-firmware mold dev-vcs/git
 #Configura o grub 
 grub-mkconfig -o /boot/grub/grub.cfg
 #Ativa alguns repositorios atualiza com o sistema e le as noticias
 eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay
-#Configura o repo Portagepelo git
+#Configura o repo Portage pelo git
 echo "[DEFAULT]
 main-repo = gentoo
 [gentoo]
