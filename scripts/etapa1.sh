@@ -2,10 +2,12 @@
 mkdir /mnt/gentoo
 mount /dev/nvme0n1p2 /mnt/gentoo
 chmod 777 /mnt/gentoo
+rm ../../easygentoo*.zip
+cp ../../easygentoo* /mnt/gentoo
 cd /mnt/gentoo
 #Baixa e instala o stage3
 wget https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
-grep stage3 latest-stage3-amd64-desktop-systemd.txt > latest.txt
+grep stage3 latest-stage3-amd64-desktop-systemd.txt | rev | cut -c 11- | rev > latest.txt 
 wget https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/$(cat latest.txt)
 rm https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
 tar xpvf stage3* --xattrs-include='*.*' --numeric-owner
@@ -22,4 +24,3 @@ cp /etc/resolv.conf /mnt/gentoo/etc/
 wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/fstab?token=GHSAT0AAAAAABRCDFVFY5O35K6DLWA2KQHWYP64BQQ -O /mnt/gentoo/etc/fstab
 wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/make.conf?token=GHSAT0AAAAAABRCDFVEGHF3D6BSR3LZNUPOYP64COA -O /mnt/gentoo/etc/portage/make.conf
 chroot /mnt/gentoo /bin/bash
-
