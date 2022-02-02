@@ -24,4 +24,5 @@ cp /etc/resolv.conf /mnt/gentoo/etc/
 wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/fstab?token=GHSAT0AAAAAABRCDFVFY5O35K6DLWA2KQHWYP64BQQ -O /mnt/gentoo/etc/fstab
 wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/make.conf?token=GHSAT0AAAAAABRCDFVEGHF3D6BSR3LZNUPOYP64COA -O /mnt/gentoo/etc/portage/make.conf
 wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/zz-autounmask?token=GHSAT0AAAAAABRF3X6IIC3MFQTHK24OUABGYQD7E2Q -O /mnt/gentoo/etc/portage/package.use/zz-autounmask
+wget https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/incompatible?token=GHSAT0AAAAAABRF6F6GB7IONNV477A6MLCYYQEDE6A -O /mnt/gentoo/etc/portage/package.mask/incompatible
 chroot /mnt/gentoo /bin/bash
