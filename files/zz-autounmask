@@ -1,0 +1,3 @@
+# package.use# required by net-misc/networkmanager-1.32.12-r1::gentoo[ppp]
+# required by networkmanager (argument)
+>=net-dialup/ppp-2.4.9-r5 ipv6
