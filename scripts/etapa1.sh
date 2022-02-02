@@ -3,7 +3,7 @@ mkdir /mnt/gentoo
 mount /dev/nvme0n1p2 /mnt/gentoo
 chmod 777 /mnt/gentoo
 rm ../../easygentoo*.zip
-cp ../../easygentoo* /mnt/gentoo
+cp -r ../../easygentoo* /mnt/gentoo
 cd /mnt/gentoo
 #Baixa e instala o stage3
 wget https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
