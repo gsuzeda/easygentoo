@@ -21,8 +21,8 @@ emerge grub
 mkdir /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
-emerge ccache eselect-repository networkmanager gentoo-kernel-bin linux-firmware mold git
 mkdir /var/cache/ccache/
+emerge ccache 
 echo 'max_size = 30.0G
 umask = 002
 cache_dir_levels = 3
@@ -30,6 +30,7 @@ compiler_check = %compiler% -v
 compression = true
 compression_level = 1 ' > /var/cache/ccache/ccache.conf 
 mkdir -p /etc/portage/repos.conf
+emerge eselect-repository networkmanager gentoo-kernel-bin linux-firmware mold dev-vcs/git
 #Configura o grub 
 grub-mkconfig -o /boot/grub/grub.cfg
 #Ativa alguns repositorios atualiza com o sistema e le as noticias
