@@ -1,7 +1,6 @@
 #Continua processo de chrooting
 source /etc/profile
 export PS1="(gentoo) ${PS1}"
-mount /dev/nvme0n1p1 /boot
 #Atualiza as fontes e define um perfil 
 emerge-webrsync
 emerge --sync --quiet
@@ -19,6 +18,7 @@ locale-gen
 #Instala o grub
 emerge grub
 mkdir /boot/efi
+mount /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
 mkdir /var/cache/ccache/
