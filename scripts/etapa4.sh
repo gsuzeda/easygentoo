@@ -29,5 +29,7 @@ sudo curl --create-dirs -L -o /etc/udev/rules.d/51-android.rules -O -L https://r
 sudo chmod 644 /etc/udev/rules.d/51-android.rules
 sudo chown root /etc/udev/rules.d/51-android.rules
 sudo systemctl restart udev
+#otimizando algumas coisas, sim, causará erros de dep. So rodar o comando dnv quando atualizar
+sudo emerge --unmerge sys-apps/hwloc cups  app-text/mupdf
 
 
