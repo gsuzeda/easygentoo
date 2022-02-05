@@ -1,15 +1,16 @@
 #Atualiza a porra toda e instala o ltoize
 emerge -uDN @world
-emerge ltoize
+#Instala pacotes problematicos com o lto
+emerge opus gst-plugins-good pipewire
 #Configura o ltoize e o gnome 
+emerge ltoize
 echo "#lto" >> /etc/portage/make.conf
 echo "source /etc/portage/make.conf.lto" >> /etc/portage/make.conf 
 echo "gnome-base/gnome -extras" > /etc/portage/package.use/gnome
 #Aplica o ltoize
 emerge -e @world --keep-going
+emerge --depclean
 #Instala pacotes que EU uso
-emerge gnome-light gdm gnome-terminal google-chrome gedit gnome-calculator github-desktop vscode sudo telegram-desktop-bin whatsapp-desktop-bin gnome-tweaks f2fs-tools jdk unp repo zip python:2.7 gnome-system-monitor ncurses-compat intel-undervolt --autounmask-write 
-y | etc-update --automode -3
 emerge gnome-light gdm gnome-terminal google-chrome gedit gnome-calculator github-desktop vscode sudo telegram-desktop-bin whatsapp-desktop-bin gnome-tweaks f2fs-tools jdk unp repo zip python:2.7 gnome-system-monitor ncurses-compat intel-undervolt 
 systemctl enable gdm bluetooth 
 #Configuracao necessaria para senhas fracas
