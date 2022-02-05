@@ -30,7 +30,7 @@ compiler_check = %compiler% -v
 compression = true
 compression_level = 1 ' > /var/cache/ccache/ccache.conf 
 mkdir -p /etc/portage/repos.conf
-emerge eselect-repository networkmanager  linux-firmware mold dev-vcs/git
+emerge eselect-repository networkmanager xwayland linux-firmware mold dev-vcs/git
 #Configura o grub 
 grub-mkconfig -o /boot/grub/grub.cfg
 #Ativa alguns repositorios atualiza com o sistema e le as noticias
