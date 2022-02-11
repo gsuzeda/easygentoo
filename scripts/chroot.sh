@@ -6,7 +6,5 @@ mount --make-rslave /mnt/gentoo/dev
 mount --bind /run /mnt/gentoo/run
 mount --make-slave /mnt/gentoo/run 
 cp /etc/resolv.conf /mnt/gentoo/etc/
-#wget -O myfstabhere /mnt/gentoo/etc/fstab
-#wget -O mymakeconfhere  /mnt/gentoo/etc/portage/make.conf
 chroot /mnt/gentoo /bin/bash
 
