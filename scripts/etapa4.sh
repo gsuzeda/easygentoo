@@ -8,7 +8,7 @@ sudo wget https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/.bashr
 source ~/.bashrc
 #Instala o Android SDK
 wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip -O commandline.zip
-unp commandline.zip
+unzip commandline.zip
 mkdir -p ~/Android/Sdk/cmdline-tools/latest
 mv ~/cmdline-tools/*  ~/Android/Sdk/cmdline-tools/latest/
 rm commandline.zip -rf cmdline-tools
@@ -20,7 +20,7 @@ sdkmanager "platforms;android-32" "build-tools;32.0.0" "extras;google;m2reposito
 
 #Instala o flutter
 wget https://storage.googleapis.com/flutter_infra_release/releases/beta/linux/flutter_linux_2.9.0-0.1.pre-beta.tar.xz -O ~/Android/flutter.tar.xz
-unp ~/Android/flutter.tar.xz
+tar -xf ~/Android/flutter.tar.xz
 mv flutter ~/Android/flutter
 export PATH=~/Android/flutter/bin:$PATH
 flutter upgrade
