@@ -11,8 +11,8 @@ echo "gnome-base/gnome -extras" > /etc/portage/package.use/gnome
 emerge -e @world --keep-going
 emerge --depclean
 #Instala pacotes que EU uso
-emerge gnome-light gdm gnome-terminal google-chrome gedit gnome-calculator github-desktop vscode sudo telegram-desktop-bin whatsapp-desktop-bin gnome-tweaks f2fs-tools jdk unp repo zip python:2.7 gnome-system-monitor ncurses-compat intel-undervolt libva-intel-media-driver
-systemctl enable gdm bluetooth 
+emerge gnome-light gdm gnome-terminal brave-bin gnome-text-editor gnome-calculator github-desktop vscode sudo telegram-desktop-bin gnome-tweaks jdk repo zip python:2.7 gnome-system-monitor ncurses-compat intel-undervolt libva-intel-media-driver sys-fs/ntfs3g unrar vulkan-loader
+systemctl enable gdm 
 #Configuracao necessaria para senhas fracas
 echo "min=disabled,2,2,2,2
 max=40

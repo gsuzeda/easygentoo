@@ -22,19 +22,22 @@ mount /boot/efi
 grub-install --efi-directory=/boot/efi
 #Instala e configura programas para viabilizar primeiro boot sem dor de cabeca
 mkdir /var/cache/ccache/
-emerge ccache gentoo-kernel-bin
+emerge ccache
 echo 'max_size = 30.0G
 umask = 002
 cache_dir_levels = 3
 compiler_check = %compiler% -v
 compression = true
-compression_level = 1 ' > /var/cache/ccache/ccache.conf 
+compression_level = 1 ' > /var/cache/ccache/ccache.conf
 mkdir -p /etc/portage/repos.conf
 emerge eselect-repository networkmanager xwayland linux-firmware mold dev-vcs/git
+#Ativa alguns repositorios
+eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay src_prepare-overlay brave-overlay
+#Instala o Kernel
+emerge sys-kernel/xanmod-kernel
 #Configura o grub 
 grub-mkconfig -o /boot/grub/grub.cfg
-#Ativa alguns repositorios atualiza com o sistema e le as noticias
-eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay
+eselect kernel set 1
 #Configura o repo Portage pelo git
 echo "[DEFAULT]
 main-repo = gentoo
@@ -61,7 +64,6 @@ auto-sync = yes
 mkdir /usr/portage-rsync
 mv /usr/portage/* /usr/portage-rsync
 emerge --sync
-eselect news read
 mv /usr/portage-rsync/{distfiles,packages} /usr/portage/
 rm -rf /usr/portage-rsync
 emerge --sync 
