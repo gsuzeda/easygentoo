@@ -28,13 +28,12 @@ mkdir -p /etc/portage/repos.conf
 emerge sys-boot/grub eselect-repository networkmanager xwayland mold linux-firmware dev-vcs/git
 #Ativa alguns repositorios
 eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay src_prepare-overlay brave-overlay
+emerge --sync --quiet
 #Instala o Kernel
 emerge sys-kernel/xanmod-kernel
 eselect kernel set 1
-#Sincroniza e le as noticias
-emerge --sync --quiet
-eselect news read
 #Configura o grub 
+mkdir /boot/efi
 mount /dev/nvme0n1p1 /boot/efi
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
