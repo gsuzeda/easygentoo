@@ -1,14 +1,14 @@
 #Cria e monta o HD no mnt
 mkdir /mnt/gentoo
-mount /dev/nvme0n1p2 /mnt/gentoo
+mount /dev/nvme0n1p1 /mnt/gentoo
 chmod 777 /mnt/gentoo
 rm ../../easygentoo*.zip
 cp -r ../../easygentoo* /mnt/gentoo
 cd /mnt/gentoo
 #Baixa e instala o stage3
-wget https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
+wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
 grep stage3 latest-stage3-amd64-desktop-systemd.txt | rev | cut -c 11- | rev > latest.txt 
-wget https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/$(cat latest.txt)
+wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/$(cat latest.txt)
 rm https://mirror.ufro.cl/gentoo/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
 tar xpvf stage3* --xattrs-include='*.*' --numeric-owner
 rm -f stage3*
@@ -21,8 +21,4 @@ mount --make-rslave /mnt/gentoo/dev
 mount --bind /run /mnt/gentoo/run
 mount --make-slave /mnt/gentoo/run 
 cp /etc/resolv.conf /mnt/gentoo/etc/
-wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/fstab?token=GHSAT0AAAAAABRCDFVFY5O35K6DLWA2KQHWYP64BQQ -O /mnt/gentoo/etc/fstab
-wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/make.conf?token=GHSAT0AAAAAABRCDFVEGHF3D6BSR3LZNUPOYP64COA -O /mnt/gentoo/etc/portage/make.conf
-wget  https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/zz-autounmask?token=GHSAT0AAAAAABRF3X6IIC3MFQTHK24OUABGYQD7E2Q -O /mnt/gentoo/etc/portage/package.use/zz-autounmask
-wget https://raw.githubusercontent.com/gsuzeda/easygentoo/main/files/incompatible?token=GHSAT0AAAAAABRF6F6GB7IONNV477A6MLCYYQEDE6A -O /mnt/gentoo/etc/portage/package.mask/incompatible
 chroot /mnt/gentoo /bin/bash
