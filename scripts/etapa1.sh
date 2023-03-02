@@ -1,6 +1,6 @@
 #Cria e monta o HD no mnt
 mkdir /mnt/gentoo
-mount /dev/nvme0n1p1 /mnt/gentoo
+mount /dev/nvme0n1p2 /mnt/gentoo
 chmod 777 /mnt/gentoo
 rm ../../easygentoo*.zip
 cp -r ../../easygentoo* /mnt/gentoo
@@ -21,4 +21,5 @@ mount --make-rslave /mnt/gentoo/dev
 mount --bind /run /mnt/gentoo/run
 mount --make-slave /mnt/gentoo/run 
 cp /etc/resolv.conf /mnt/gentoo/etc/
+cp -r /mnt/gentoo/easygentoo-main/files/* /mnt/gentoo/
 chroot /mnt/gentoo /bin/bash
