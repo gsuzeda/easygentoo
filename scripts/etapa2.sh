@@ -25,7 +25,7 @@ compiler_check = %compiler% -v
 compression = true
 compression_level = 1 ' > /var/cache/ccache/ccache.conf
 mkdir -p /etc/portage/repos.conf
-emerge sys-boot/grub eselect-repository networkmanager xwayland mold linux-firmware dev-vcs/git
+emerge sys-fs/dosfstools sys-boot/grub eselect-repository networkmanager xwayland mold linux-firmware dev-vcs/git 
 #Ativa alguns repositorios
 eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay src_prepare-overlay brave-overlay
 emerge --sync --quiet
@@ -34,6 +34,7 @@ emerge sys-kernel/xanmod-kernel
 eselect kernel set 1
 #Configura o grub 
 mkdir /boot/efi
+mkfs.fat -F 32 -n efi-boot /dev/nvme0n1p1
 mount /dev/nvme0n1p1 /boot/efi
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
