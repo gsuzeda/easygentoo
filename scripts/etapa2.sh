@@ -25,16 +25,19 @@ compiler_check = %compiler% -v
 compression = true
 compression_level = 1 ' > /var/cache/ccache/ccache.conf
 mkdir -p /etc/portage/repos.conf
-emerge eselect-repository networkmanager xwayland mold linux-firmware dev-vcs/git
+emerge sys-boot/grub eselect-repository networkmanager xwayland mold linux-firmware dev-vcs/git
 #Ativa alguns repositorios
 eselect repository enable mv lto-overlay ppfeufer-gentoo-overlay src_prepare-overlay brave-overlay
 #Instala o Kernel
 emerge sys-kernel/xanmod-kernel
-#Configura o grub 
-#grub-mkconfig -o /boot/grub/grub.cfg
 eselect kernel set 1
-emerge --sync 
+#Sincroniza e le as noticias
+emerge --sync --quiet
 eselect news read
+#Configura o grub 
+mount /dev/nvme0n1p1 /boot/efi
+grub-install --efi-directory=/boot/efi
+grub-mkconfig -o /boot/grub/grub.cfg
 # Habilita gerenciador de redes e configura seha
 sytemctl enable NetworkManaget
 echo "min=disabled,2,2,2,2
