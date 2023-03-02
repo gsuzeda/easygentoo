@@ -7,6 +7,7 @@ sys-power/intel-undervolt ~amd64
 app-containers/distrobox ~amd64
 sys-kernel/linux-firmware ~amd64
 net-dialup/ppp ~amd64
+sys-boot/grub ~amd64
 #Android
 dev-vcs/repo ~amd64
 #Coding
