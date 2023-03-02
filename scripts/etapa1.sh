@@ -11,6 +11,7 @@ grep stage3 latest-stage3-amd64-desktop-systemd.txt | rev | cut -c 11- | rev > l
 wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/$(cat latest.txt)
 tar xpvf stage3* --xattrs-include='*.*' --numeric-owner
 rm -f *latest*
+rm -f stage3*
 #Chrooting e importacao de configuracoes
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
