@@ -1,0 +1,17 @@
+#System Setup
+sys-devel/mold ~amd64
+sys-kernel/xanmod-kernel ~amd64
+virtual/dist-kernel ~amd64
+sys-config/ltoize ~amd64
+sys-power/intel-undervolt ~amd64
+app-containers/distrobox ~amd64
+sys-kernel/linux-firmware ~amd64
+net-dialup/ppp ~amd64
+#Android
+dev-vcs/repo ~amd64
+#Coding
+app-editors/vscode ~amd64
+dev-vcs/github-desktop ~amd64
+dev-util/android-studio ~amd64
+#Extras
+net-im/telegram-desktop-bin ~amd64
