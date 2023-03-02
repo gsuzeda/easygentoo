@@ -38,7 +38,7 @@ mount /dev/nvme0n1p1 /boot/efi
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 # Habilita gerenciador de redes e configura seha
-sytemctl enable NetworkManaget
+systemctl enable NetworkManaget
 echo "min=disabled,2,2,2,2
 max=40
 passphrase=0
