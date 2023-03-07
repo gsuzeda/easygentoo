@@ -5,14 +5,15 @@ chmod 777 /mnt/gentoo
 rm ../../easygentoo*.zip
 cp -r ../../easygentoo* /mnt/gentoo
 cd /mnt/gentoo
-#Baixa e instala o stage3
-wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/latest-stage3-amd64-desktop-systemd.txt
-grep stage3 latest-stage3-amd64-desktop-systemd.txt | rev | cut -c 11- | rev > latest.txt 
+
+#Baixa e extrai o stage3
+wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/latest-stage3-amd64-musl-llvm.txt
+grep stage3 latest-stage3-amd64-musl-llvm.txt | rev | cut -c 11- | rev > latest.txt 
 wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/$(cat latest.txt)
 tar xpvf stage3* --xattrs-include='*.*' --numeric-owner
-rm -f *latest*
-rm -f stage3*
-#Chrooting e importacao de configuracoes
+rm -f *latest* stage3*
+
+#Chrooting e importação de configuracoes
 mount --types proc /proc /mnt/gentoo/proc
 mount --rbind /sys /mnt/gentoo/sys
 mount --make-rslave /mnt/gentoo/sys

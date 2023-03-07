@@ -1,45 +1,23 @@
-#Atualiza a porra toda e instala o ltoize
-emerge -uDN @world
-#Instala pacotes problematicos com o lto
-emerge opus gst-plugins-good pipewire
-#Configura o ltoize e o gnome 
-emerge ltoize
-echo "#lto" >> /etc/portage/make.conf
-echo "source /etc/portage/make.conf.lto" >> /etc/portage/make.conf 
-echo "gnome-base/gnome -extras" > /etc/portage/package.use/gnome
-#Aplica o ltoize
-emerge -e @world --keep-going
-emerge --depclean
-#Instala pacotes que EU uso
-emerge gnome-light gdm gnome-terminal brave-bin gnome-text-editor gnome-calculator github-desktop vscode sudo telegram-desktop-bin gnome-tweaks jdk repo zip python:2.7 gnome-system-monitor ncurses-compat intel-undervolt libva-intel-media-driver sys-fs/ntfs3g unrar vulkan-loader
-systemctl enable gdm 
-#Configuracao necessaria para senhas fracas
-echo "min=disabled,2,2,2,2
-max=40
-passphrase=0
-match=0
-similar=permit
-random=0
-enforce=none
-retry=3" > /etc/security/passwdqc.conf
-#configura undervolt 
-echo "enable no
-undervolt 0 'CPU' -90
-undervolt 1 'GPU' -40
-undervolt 2 'CPU Cache' -90
-undervolt 3 'System Agent' -40
-undervolt 4 'Analog I/O' -40
-interval 5000
-daemon undervolt:once
-daemon power
-daemon tjoffset
-" > /etc/intel-undervolt.conf
-systemctl enable intel-undervolt
-#Configurando o sudo 
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers  
-#adiciona usuario
-useradd -m gsuzeda
-usermod -G wheel,audio,video,plugdev,portage,kvm gsuzeda
-passwd gsuzeda
-reboot
+#Adiciona o repositorio do clang musl pelo git com os patches
+echo '
+[clang-musl]
+sync-uri = https://github.com/clang-musl-overlay/clang-musl-overlay.git
+sync-type = git
+location = /var/db/repos/clang-musl
+sync-depth = 1
+' > /etc/portage/repos.conf/clang-musl.conf
+git clone https://github.com/clang-musl-overlay/gentoo-patchset /etc/portage/patches/
 
+#Sincroniza o novo repo
+emerge --sync --quiet
+
+#Define o perfil como musl-clang
+eselect profile set --force 36
+
+#Limpa dependencias como gcc que não são mais nescessarias 
+emerge -c 
+
+#Define o llvm para a versão 15 e atualiza e recompila o sistema inteiro 
+llvm-conf --enable-native-links --enable-clang-wrappers --enable-binutils-wrappers llvm-15
+emerge -euDN @world 
+emerge -c 
