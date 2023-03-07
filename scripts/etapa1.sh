@@ -22,5 +22,5 @@ mount --make-rslave /mnt/gentoo/dev
 mount --bind /run /mnt/gentoo/run
 mount --make-slave /mnt/gentoo/run 
 cp /etc/resolv.conf /mnt/gentoo/etc/
-cp -r /mnt/gentoo/easygentoo-main/files/* /mnt/gentoo/
+cp -rf /mnt/gentoo/easygentoo*/files/* /mnt/gentoo/
 chroot /mnt/gentoo /bin/bash
