@@ -7,8 +7,8 @@ cp -r ../../easygentoo* /mnt/gentoo
 cd /mnt/gentoo
 
 #Baixa e extrai o stage3
-wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/latest-stage3-amd64-musl-llvm.txt
-grep stage3 latest-stage3-amd64-musl-llvm.txt | rev | cut -c 11- | rev > latest.txt 
+wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/latest-stage3-amd64-llvm-openrc.txt
+grep stage3 latest-stage3-amd64-llvm-openrc.txt | rev | cut -c 11- | rev > latest.txt 
 wget https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/$(cat latest.txt)
 tar xpvf stage3* --xattrs-include='*.*' --numeric-owner
 rm -f *latest* stage3*
