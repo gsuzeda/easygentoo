@@ -9,11 +9,15 @@ eselect profile set default/linux/amd64/17.1/desktop/gnome
 
 #Configuracoes locais para PT BR
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-echo "UTC" > /etc/conf.d/hwclock
+echo 'clock_hctosys="YES" 
+clock_systohc="YES"
+# clock="local"
+' > /etc/conf.d/hwclock
 echo "en_US ISO-8859-1
 en_US.UTF-8 UTF-8
 pt_BR.UTF-8 UTF-8
 "  >> /etc/locale.gen
+echo gentoo > /etc/hostname
 emerge dejavu
 eselect fontconfig enable 33 32 34
 locale-gen
@@ -31,7 +35,7 @@ compression_level = 1 ' > /var/cache/ccache/ccache.conf
 #Adiciona alguns repositórios e instala utilitarios necessários para prosseguir 
 mkdir -p /etc/portage/repos.conf
 emerge sys-fs/dosfstools sys-boot/grub eselect-repository networkmanager sys-devel/llvm mold linux-firmware dev-vcs/git 
-eselect repository enable ppfeufer-gentoo-overlay src_prepare-overlay brave-overlay
+eselect repository enable src_prepare-overlay
 
 #Sincroniza os novos repositórios
 emerge --sync --quiet

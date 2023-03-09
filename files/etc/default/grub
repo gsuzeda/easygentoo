@@ -9,8 +9,8 @@
 # their associated values.
 
 GRUB_DISTRIBUTOR="Gentoo"
-GRUB_CMDLINE_LINUX="quiet splash intel_pstate=enable ipv6.disable=1  mitigations=off intel_iommu=on iommu=pt modprobe.blacklist=nouveau"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_pstate=enable  ipv6.disable=1 mitigations=off intel_iommu=on iommu=pt modprobe.blacklist=nouveau"
+GRUB_CMDLINE_LINUX="quiet splash intel_pstate=enable   mitigations=off intel_iommu=on iommu=pt modprobe.blacklist=nouveau"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_pstate=enable   mitigations=off intel_iommu=on iommu=pt modprobe.blacklist=nouveau"
 GRUB_DISABLE_OS_PROBER=false
 GRUB_EARLY_INITRD_LINUX_CUSTOM="ucode.cpio"
 GRUB_GFXPAYLOAD_LINUX=keep

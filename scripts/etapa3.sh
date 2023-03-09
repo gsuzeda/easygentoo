@@ -1,23 +1,12 @@
-#Adiciona o repositorio do clang musl pelo git com os patches
-echo '
-[clang-musl]
-sync-uri = https://github.com/clang-musl-overlay/clang-musl-overlay.git
-sync-type = git
-location = /var/db/repos/clang-musl
-sync-depth = 1
-' > /etc/portage/repos.conf/clang-musl.conf
-git clone https://github.com/clang-musl-overlay/gentoo-patchset /etc/portage/patches/
-
-#Sincroniza o novo repo
-emerge --sync --quiet
-
-#Define o perfil como musl-clang
-eselect profile set --force 36
-
-#Limpa dependencias como gcc que não são mais nescessarias 
-emerge -c 
-
-#Define o llvm para a versão 15 e atualiza e recompila o sistema inteiro 
-llvm-conf --enable-native-links --enable-clang-wrappers --enable-binutils-wrappers llvm-15
-emerge -euDN @world 
-emerge -c 
+#Instala pacotes que EU uso
+echo "Essa é a parte mais chata, você deverá resoler os problemas de dependência"
+echo "Você deverá em ordem:"
+echo "Tentar usar o etc-update"
+echo "Tentar reduzir a flag do clang para -03 ou -O2 com flto=thin"
+echo "E se o erro continuar, adicionar o pacote dentro do env para compilação via gcc"
+emerge gnome-light gdm gnome-terminal gnome-text-editor \
+gnome-browser-connector gnome-calculator  sudo sys-fs/fuse \
+telegram-desktop-bin gnome-tweaks jdk repo zip python:2.7 \
+gnome-system-monitor ncurses-compat intel-undervolt \
+libva-intel-media-driver sys-fs/ntfs3g unrar vulkan-loader \
+gui-libs/display-manager-init app-arch/unp

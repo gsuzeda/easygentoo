@@ -8,6 +8,7 @@ app-containers/distrobox ~amd64
 sys-kernel/linux-firmware ~amd64
 net-dialup/ppp ~amd64
 sys-boot/grub ~amd64
+media-libs/mesa ~amd64
 #Android
 dev-vcs/repo ~amd64
 #Coding
@@ -16,3 +17,4 @@ dev-vcs/github-desktop ~amd64
 dev-util/android-studio ~amd64
 #Extras
 net-im/telegram-desktop-bin ~amd64
+
