@@ -25,7 +25,7 @@ locale-gen
 #Instala e configura o CCACHE
 mkdir /var/cache/ccache/
 emerge ccache
-echo 'max_size = 30.0G
+echo 'max_size = 100.0G
 umask = 002
 cache_dir_levels = 3
 compiler_check = %compiler% -v
@@ -45,9 +45,12 @@ emerge sys-kernel/xanmod-kernel
 eselect kernel set 1
 
 #Configura o grub 
+mount /boot
 mkdir /boot/efi
-mkfs.fat -F 32 -n efi-boot /dev/nvme0n1p1
-mount /dev/nvme0n1p1 /boot/efi
+mkfs.fat -F 32 -n efi-boot /dev/nvme1n1p5
+mount /boot/efi
+mount /home
+
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 

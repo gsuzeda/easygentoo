@@ -7,6 +7,8 @@ echo "E se o erro continuar, adicionar o pacote dentro do env para compilação 
 emerge gnome-light gdm gnome-terminal gnome-text-editor \
 gnome-browser-connector gnome-calculator  sudo sys-fs/fuse \
 telegram-desktop-bin gnome-tweaks jdk repo zip python:2.7 \
-gnome-system-monitor ncurses-compat intel-undervolt \
-libva-intel-media-driver sys-fs/ntfs3g unrar vulkan-loader \
-gui-libs/display-manager-init app-arch/unp
+gnome-system-monitor ncurses-compat ripgrep clang \
+llvm aria2 sys-fs/ntfs3g unrar vulkan-loader \
+gui-libs/display-manager-init app-arch/unp zsh \
+app-containers/podman distrobox zsh-completions  \
+gentoo-zsh-completions android-tools 
