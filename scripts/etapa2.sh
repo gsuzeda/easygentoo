@@ -5,7 +5,7 @@ export PS1="(gentoo) ${PS1}"
 #Atualiza as fontes e define um perfil 
 emerge-webrsync
 emerge --sync --quiet
-eselect profile set default/linux/amd64/17.1/desktop/gnome
+eselect profile set default/linux/amd64/17.1/desktop/gnome/systemd
 
 #Configuracoes locais para PT BR
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -34,7 +34,8 @@ compression_level = 1 ' > /var/cache/ccache/ccache.conf
 
 #Adiciona alguns repositórios e instala utilitarios necessários para prosseguir 
 mkdir -p /etc/portage/repos.conf
-emerge sys-fs/dosfstools sys-boot/grub eselect-repository networkmanager sys-devel/llvm mold linux-firmware dev-vcs/git 
+emerge sys-fs/dosfstools sys-boot/grub eselect-repository mold linux-firmware dev-vcs/git 
+USE=minimal emerge libsndfile
 eselect repository enable src_prepare-overlay
 
 #Sincroniza os novos repositórios
@@ -54,8 +55,6 @@ mount /home
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Habilita gerenciador de redes 
-rc-update add NetworkManager default
 
 #Configura a senha de Root
 echo "min=disabled,2,2,2,2

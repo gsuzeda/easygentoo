@@ -1,5 +1,5 @@
 # $N refers to the amount of threads used during LTO, one option is to be set to the value of $(nproc)
-CFLAGS="-flto=8 -march=native -O3 -pipe"
+CFLAGS="-march=znver2 -O2 -pipe"
 CXXFLAGS="${CFLAGS}"
 
 CC="gcc"
