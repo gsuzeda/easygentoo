@@ -11,4 +11,4 @@ gnome-system-monitor ncurses-compat ripgrep clang \
 llvm aria2 sys-fs/ntfs3g unrar vulkan-loader \
 gui-libs/display-manager-init app-arch/unp zsh \
 app-containers/podman distrobox zsh-completions  \
-gentoo-zsh-completions android-tools 
+gentoo-zsh-completions android-tools media-fonts/nerd-fonts 

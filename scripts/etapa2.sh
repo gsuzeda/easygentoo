@@ -36,7 +36,7 @@ compression_level = 1 ' > /var/cache/ccache/ccache.conf
 mkdir -p /etc/portage/repos.conf
 emerge sys-fs/dosfstools sys-boot/grub eselect-repository mold linux-firmware dev-vcs/git 
 USE=minimal emerge libsndfile
-eselect repository enable src_prepare-overlay
+eselect repository enable src_prepare-overlay cova
 
 #Sincroniza os novos repositórios
 emerge --sync --quiet
@@ -50,7 +50,7 @@ mount /boot
 mkdir /boot/efi
 mkfs.fat -F 32 -n efi-boot /dev/nvme0n1p1
 mount /boot/efi
-mount /home
+
 
 grub-install --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
