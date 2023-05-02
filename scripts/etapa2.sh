@@ -48,7 +48,7 @@ eselect kernel set 1
 #Configura o grub 
 mount /boot
 mkdir /boot/efi
-mkfs.fat -F 32 -n efi-boot /dev/nvme1n1p5
+mkfs.fat -F 32 -n efi-boot /dev/nvme0n1p1
 mount /boot/efi
 mount /home
 

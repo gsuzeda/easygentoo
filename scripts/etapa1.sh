@@ -1,6 +1,6 @@
 #Cria e monta o HD no mnt
 mkdir /mnt/gentoo
-mount /dev/nvme1n1p6 /mnt/gentoo
+mount /dev/nvme0n1p3 /mnt/gentoo
 chmod 777 /mnt/gentoo
 rm ../../easygentoo*.zip
 cp -r ../../easygentoo* /mnt/gentoo
